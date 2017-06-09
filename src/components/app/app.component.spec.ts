@@ -1,12 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
+import { AppHeaderComponent } from '../../common/components/app-header/app-header.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        AppHeaderComponent
       ],
     }).compileComponents();
   }));
@@ -18,10 +20,10 @@ describe('AppComponent', () => {
   }));
 
 
-  it('should display the header text "Welcome to Momentz4Ever"', async(() => {
+  it('should display the header text "Welcome to Momentz4Ever".', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Momentz4Ever');
+    expect(compiled.querySelector('h1').textContent).toContain('Momentz-4-ever');
   }));
 });
