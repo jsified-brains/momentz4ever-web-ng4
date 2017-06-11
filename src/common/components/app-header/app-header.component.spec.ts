@@ -16,8 +16,11 @@ describe('AppHeaderComponent', () => {
     expect(appHeader).toBeTruthy();
   }));
 
-  it('should display the header text "Momentz-4-Ever".', async(() => {
+  it('should display the input title as the header text.', async(() => {
     const fixture = TestBed.createComponent(AppHeaderComponent);
+    let comp: AppHeaderComponent = fixture.componentInstance;
+    comp.title = 'Momentz-4-ever';
+
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Momentz-4-ever');
