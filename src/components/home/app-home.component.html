@@ -1,4 +1,17 @@
-<app-header title="Momentz-4-ever"
-            [isUserLoggedIn]="true" ></app-header>
 
-    Welcome, you are now logged in!!!
+   <app-header title="Momentz-4-ever" 
+                [isUserLoggedIn]="true"></app-header>
+
+
+    <div *ngFor = "let album of albums">
+        <div class="card">
+            <img class="card-img-top" 
+                style="height:150px;width:150px;border:1px solid #c0c0c0"
+                src="{{album.imageUrl}}" alt="Card image cap">
+       
+            <div class="card-block">
+                <h4 class="card-title"> {{album.title}} </h4>                
+                <p class="card-text">{{album.description}}</p>
+            </div>
+        </div>
+    </div>
