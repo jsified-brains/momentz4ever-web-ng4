@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { AppHeaderComponent } from '../../common/components/app-header/app-header.component';
 import { LoginComponent } from '../../components/login/app-login.component';
 import { HomeComponent } from '../../components/home/app-home.component';
+import { AlbumService } from '../../common/services/albums.service';
+
+
 
 const ROUTES: Route[] = [
   { path: '', component: LoginComponent},
@@ -27,7 +30,9 @@ const ROUTES: Route[] = [
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [
+    AlbumService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
