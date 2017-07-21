@@ -1,17 +1,26 @@
 
    <app-header title="Momentz-4-ever" 
                 [isUserLoggedIn]="true"></app-header>
-
-
-    <div *ngFor = "let album of albums">
-        <div class="card">
-            <img class="card-img-top" 
-                style="height:150px;width:150px;border:1px solid #c0c0c0"
-                src="{{album.imageUrl}}" alt="Card image cap">
-       
-            <div class="card-block">
-                <h4 class="card-title"> {{album.title}} </h4>                
-                <p class="card-text">{{album.description}}</p>
-            </div>
-        </div>
+    <br><br><br>
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr class="thead-inverse">
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Image Url</th>
+                    <th>Date of Creation</th>
+                    <th>Last Viewed</th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr *ngFor = "let album of albums">
+                <td>{{album.title}}</td>
+                <td>{{album.description}}</td>
+                <td><a href="#">{{album.imageUrl}}</a></td>
+                <td>{{album.createdDate}}</td>
+                <td>{{album.lastViewedOn}}</td>
+            </tr>
+        </tbody>
+        </table>
     </div>

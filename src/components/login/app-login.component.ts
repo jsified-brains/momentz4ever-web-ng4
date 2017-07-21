@@ -11,16 +11,16 @@ export class LoginComponent {
 
     public onLoginClick(){
         //
-
-        FB.getLoginStatus((response) => {
-            if (response.status === 'connected') {
-                this.router.navigate(['./home']);
-            }
-            else {
-                FB.login((loginResponse)=>{
-                    this.router.navigate(['./home']);
-                });
-            }
-        });
+        this.router.navigate(['./home']);
+        // FB.getLoginStatus((response) => {
+        //     if (response.status === 'connected') {
+        //         this.router.navigate(['./home']);
+        //     }
+        //     else {
+        //         FB.login((loginResponse)=>{
+        //             this.router.navigate(['./home']);
+        //         });
+        //     }
+        // });
     }
 }
