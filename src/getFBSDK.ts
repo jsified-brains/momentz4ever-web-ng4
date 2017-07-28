@@ -1,7 +1,8 @@
+import secrets  from 'C:/working/TS-NG4/Secrets';
 
 (<any>window).fbAsyncInit = ()=> {
     FB.init({
-      appId            : '485206825245632302',
+      appId            : secrets.facebookAppId,
       //autoLogAppEvents : true,
       xfbml            : false,
       version          : 'v2.9'
