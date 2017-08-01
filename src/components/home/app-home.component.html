@@ -1,8 +1,12 @@
 
-   <app-header title="Momentz-4-ever" 
-                [isUserLoggedIn]="true"></app-header>
-    <br><br><br>
-    <div class="container">
+<app-header title="Momentz-4-ever" 
+            [isUserLoggedIn]="true"></app-header>
+<br><br><br>
+
+    <button (click)="setView('listView')" id="listView">List View</button>
+    <button (click)="setView('gridView')" id="gridView">Grid View</button>
+<br><br>
+<div class="container" *ngIf="currentView">
         <table class="table table-bordered table-hover">
             <thead>
                 <tr class="thead-inverse">
@@ -17,10 +21,20 @@
             <tr *ngFor = "let album of albums">
                 <td>{{album.title}}</td>
                 <td>{{album.description}}</td>
-                <td><a href="#">{{album.imageUrl}}</a></td>
+                <td><img src={{album.imageUrl}} height="42" width="42"></td>
                 <td>{{album.createdDate}}</td>
                 <td>{{album.lastViewedOn}}</td>
             </tr>
         </tbody>
         </table>
-    </div>
+</div>
+
+<div *ngIf="!currentView">
+    <ul class="list-group" *ngFor="let album of albums"><br><br>
+        <li><b>{{album.title}}</b></li>
+        <li>{{album.description}}</li>
+        <li><img src={{album.imageUrl}} height="42" width="42"></li>
+        <li>{{album.createdDate}}</li>
+        <li>{{album.lastViewedOn}}</li>
+    </ul>
+</div>
