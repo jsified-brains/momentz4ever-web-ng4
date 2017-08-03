@@ -25,10 +25,10 @@ export class HomeComponent{
     public currentView;
 
     public setView(view:string){  
-        if (view === 'gridView') 
+        if (view === 'listView') 
             this.currentView = true;
         else{
-        if (view === 'listView') 
+        if (view === 'gridView') 
             this.currentView = false;
         }
         this.getAlbums();
