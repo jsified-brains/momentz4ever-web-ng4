@@ -1,0 +1,67 @@
+<app-header title="Momentz-4-ever" [isUserLoggedIn]="true"></app-header>
+
+<div class="jumbotron">
+  <div class="row">
+    <div style="width:40%" class="text-center">
+        <h1> My Photos </h1>
+    </div>
+    <div style="width:60%">
+        <span style="float:right">
+            <button type="button" (click)="setView('cardView')" id="listView" class="btn btn-primary btn-lg"
+                style="margin: 5px; padding: 15px;">
+                <span class="glyphicon glyphicon-th-large" data-toggle="tooltip" title="Card View" aria-hidden="true"></span>
+            </button>
+            <button (click)="setView('thumbnailView')" class="btn btn-primary btn-lg" id="gridView" 
+                style="margin: 5px; padding: 15px;">
+                <span class="glyphicon glyphicon-th" data-toggle="tooltip" title="Thumbnail View" aria-hidden="true"></span>
+            </button>
+        </span>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="currentView=='cardView'">
+    <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let photo of photos">
+            <div class="card card-outline-success">
+                <img class="card-img-top" style="border-bottom:1px solid;padding: 10px;margin:0 auto;width:100%;height:200px;"
+                 src={{photo.imageUrl}}
+                alt="Album">
+                <div class="card-block text-right">
+                    <button (click)="onLikeClick(photo)" class="btn btn-primary" 
+                        style="margin: 5px; padding: 15px;">
+                        <span class="glyphicon glyphicon-heart" data-toggle="tooltip" title="Like It!" aria-hidden="true"></span>
+                        <span class="badge">{{photo.likeCount}}</span>
+                    </button>
+                    <button (click)="onCommentClick(photo)" class="btn btn-primary" 
+                        style="margin: 5px; padding: 15px;">
+                        <span class="glyphicon glyphicon-comment" data-toggle="tooltip" title="Add Comment" aria-hidden="true"></span>
+                        <span class="badge">{{photo.comment}}</span>
+                    </button>
+                    <div *ngIf="photo.commentArea" (keydown)="handleKeyDown($event,photo)">
+                        <input type="text" class="form-control" id="comment">
+                    </div>
+                    <!--<h4 class="card-title">{{photo.title}}</h4>
+                    <p class="card-text">{{photo.description}}</p>-->
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Created On: {{photo.createdDate}} </small> 
+                    <label class="checkbox-inline" style="float:right"><input type="checkbox"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="currentView=='thumbnailView'">
+    <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor="let photo of photos">
+            <div class="card card-outline-success">
+                <img class="card-img-top" style="border-bottom:1px solid;padding: 10px;margin:0 auto;width:100%;height:200px;"
+                 src={{photo.imageUrl}}
+                alt="Album">
+            </div>
+        </div>
+    </div>
+</div>
+

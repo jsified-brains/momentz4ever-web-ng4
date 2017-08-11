@@ -1,4 +1,5 @@
 import { Component , OnInit,  ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { Album } from '../../common/Interfaces/album';
 import { AlbumService } from '../../common/services/albums.service';
 
@@ -9,7 +10,7 @@ import { AlbumService } from '../../common/services/albums.service';
 export class HomeComponent{
     albums: Album[] =[];
 
-    constructor(private albumService: AlbumService, private ref: ChangeDetectorRef){
+    constructor(private router: Router,private albumService: AlbumService, private ref: ChangeDetectorRef){
     }
 
     getAlbums(){
@@ -22,20 +23,22 @@ export class HomeComponent{
         error => console.log(error));
     }
 
-    public currentView;
+    public currentView='gridView';
 
     public setView(view:string){  
-        if (view === 'gridView') 
-            this.currentView = true;
-        else{
         if (view === 'listView') 
-            this.currentView = false;
+            this.currentView = 'listView';
+        else{
+        if (view === 'gridView') 
+            this.currentView = 'gridView';
         }
-        this.getAlbums();
     }
 
-    // ngOnInit(){
-    //     // this.getAlbums();
-    //     this.currentView;
-    // }
+    public onViewClick(album){  
+        this.router.navigate(['./photo',album.albumId]);
+    }
+
+    ngOnInit(){
+        this.getAlbums();
+    }
 }

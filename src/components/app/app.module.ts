@@ -7,14 +7,17 @@ import { Route, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from '../../common/components/app-header/app-header.component';
 import { LoginComponent } from '../../components/login/app-login.component';
-import { HomeComponent } from '../../components/home/app-home.component';
+import { HomeComponent } from '../../components/home/app-home.component';   
+import { PhotoComponent } from '../../components/photo/app-photo.component';
 import { AlbumService } from '../../common/services/albums.service';
+import { PhotoService } from '../../common/services/photos.service';
 
 
 
 const ROUTES: Route[] = [
   { path: '', component: LoginComponent},
-  { path: 'home', component: HomeComponent}
+  { path: 'home', component: HomeComponent},
+  { path: 'photo/:albumId', component: PhotoComponent}
 ]
 
 @NgModule({
@@ -22,7 +25,8 @@ const ROUTES: Route[] = [
     AppComponent,
     AppHeaderComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +35,9 @@ const ROUTES: Route[] = [
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
-    AlbumService
-  ],
+    AlbumService,
+    PhotoService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
