@@ -15,7 +15,4 @@ export class UserService{
         .post(AppConfig.route('users'), user)
         .map((res: Response) => res.json());
     }
-
-    
-
 }

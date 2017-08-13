@@ -23,21 +23,18 @@ export class LoginComponent {
     ];
 
 
-    constructor(private router: Router, private ref: ChangeDetectorRef, private userService: UserService){
+    constructor(private router: Router, private userService: UserService){
     }
 
     public onLoginClick(){
-        //this.router.navigate(['./home']);
+
         FB.getLoginStatus((response) => {
             if (response.status === 'connected') {
                 this.getUserDetails();
             }
             else {
-                
                 FB.login((loginResponse)=>{
-                    console.log('FB response=', loginResponse);
                     this.getUserDetails();
-                    
                 }, {scope: this.fbApiPermission.join(',')});
             }
         });
@@ -45,19 +42,10 @@ export class LoginComponent {
 
     public getUserDetails(){
         FB.api('/me', {fields: this.userFields}, (details) => {
-            console.log('got user details=');
-            console.log(details);
-            this.userDetails = JSON.stringify(details);
-
-            this.ref.detectChanges();
-
-
-            // this.userDetails = JSON.stringify(details);
             this.userService
             .add(details)
             .subscribe(responseData => {
-                this.userDetailsFromDB = responseData.email;
-               // this.router.navigate(['./home']);
+                this.router.navigate(['./home']);
             }, 
             error => console.log(error));           
         });
