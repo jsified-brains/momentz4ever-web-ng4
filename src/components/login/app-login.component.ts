@@ -1,4 +1,4 @@
-import { Component,  ChangeDetectorRef  } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../common/services'
 
