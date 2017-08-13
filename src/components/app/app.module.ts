@@ -9,8 +9,7 @@ import { AppHeaderComponent } from '../../common/components/app-header/app-heade
 import { LoginComponent } from '../../components/login/app-login.component';
 import { HomeComponent } from '../../components/home/app-home.component';   
 import { PhotoComponent } from '../../components/photo/app-photo.component';
-import { AlbumService } from '../../common/services/albums.service';
-import { PhotoService } from '../../common/services/photos.service';
+import { AlbumService, PhotoService, UserService } from '../../common/services';
 
 
 
@@ -36,7 +35,8 @@ const ROUTES: Route[] = [
   ],
   providers: [
     AlbumService,
-    PhotoService
+    PhotoService,
+    UserService
     ],
   bootstrap: [AppComponent]
 })
