@@ -1,7 +1,7 @@
 import { Component , OnInit,  ChangeDetectorRef } from '@angular/core';
 import { Router,ActivatedRoute,ParamMap } from '@angular/router';
-import { Photo } from '../../common/Interfaces/photo';
-import { PhotoService } from '../../common/services/photos.service';
+import { Photo } from '../../common/Interfaces';
+import { PhotoService } from '../../common/services';
 
 @Component({
     selector: 'app-photo',
