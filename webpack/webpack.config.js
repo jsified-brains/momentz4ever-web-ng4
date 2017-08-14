@@ -10,6 +10,7 @@ module.exports = {
         path: path.join(__dirname, "../dist/"),
         filename: "[name].bundle.js",
     },
+    watch:true,
     resolve: {
         extensions: ['.js', '.ts', '.html']
     },

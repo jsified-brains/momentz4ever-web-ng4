@@ -1,6 +1,6 @@
 import { Component , OnInit,  ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { Album } from '../../common/Interfaces/album';
+import { Album } from '../../common/interfaces';
 import { AlbumService } from '../../common/services/albums.service';
 
 @Component({
