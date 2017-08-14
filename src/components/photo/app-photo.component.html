@@ -46,7 +46,14 @@
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">Created On: {{photo.createdDate}} </small> 
-                    <label class="checkbox-inline" style="float:right"><input type="checkbox"></label>
+                    <label class="checkbox-inline" (click)="onCheckboxClick(photo)" style="float:right"><input type="checkbox"></label>
+                    <div *ngIf="photo.checkBox">
+                        <button (click)="onCommentClick(photo)" class="btn btn-primary" 
+                        style="margin: 5px; padding: 15px;">
+                            <span class="glyphicon glyphicon-delete" data-toggle="tooltip" title="Add Comment" aria-hidden="true"></span>
+                            <span class="badge">{{photo.comment}}</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -53,6 +53,10 @@ export class PhotoComponent{
         photo.likeCount++;
     }
 
+    onCheckboxClick(photo){
+        photo.checkBox=true;
+    }
+
     ngOnInit(){
         
         this.id= this.route.snapshot.paramMap.get('albumId');

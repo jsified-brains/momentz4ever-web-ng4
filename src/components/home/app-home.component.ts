@@ -34,6 +34,10 @@ export class HomeComponent{
         }
     }
 
+    // openDialog(){
+
+    // }
+    
     public onViewClick(album){  
         this.router.navigate(['./photo',album.albumId]);
     }
