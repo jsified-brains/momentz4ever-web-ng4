@@ -29,6 +29,8 @@ export class PhotoComponent{
     public currentView='thumbnailView';
 
     public setView(view:string){  
+        this.id= this.route.snapshot.paramMap.get('albumId');
+        this.getPhotos();
         if (view === 'thumbnailView') 
             this.currentView = 'thumbnailView';
         else{
@@ -57,9 +59,9 @@ export class PhotoComponent{
         photo.checkBox=true;
     }
 
-    ngOnInit(){
+    // ngOnInit(){
         
-        this.id= this.route.snapshot.paramMap.get('albumId');
-        this.getPhotos();
-    }
+    //     // this.id= this.route.snapshot.paramMap.get('albumId');
+    //     // this.getPhotos();
+    // }
 }

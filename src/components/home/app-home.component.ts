@@ -14,6 +14,7 @@ export class HomeComponent{
     }
 
     getAlbums(){
+        console.log("calling get album service");
          this.albumService
         .getAlbums()
         .subscribe(responseData => {
@@ -25,24 +26,25 @@ export class HomeComponent{
 
     public currentView='gridView';
 
-    public setView(view:string){  
-        if (view === 'listView') 
+    public setView(view:string){ 
+        this.getAlbums();  
+        if (view === 'listView')
+            
             this.currentView = 'listView';
         else{
         if (view === 'gridView') 
+            
             this.currentView = 'gridView';
         }
     }
 
-    // openDialog(){
+    public onViewClick(album){  
+        this.router.navigate(['./album',album._id]);
+    }
+
+    // ngOnInit(){
+    //     console.log("calling get album");
+    //     this.getAlbums();
 
     // }
-    
-    public onViewClick(album){  
-        this.router.navigate(['./photo',album.albumId]);
-    }
-
-    ngOnInit(){
-        this.getAlbums();
-    }
 }

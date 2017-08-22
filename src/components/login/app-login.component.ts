@@ -27,7 +27,6 @@ export class LoginComponent {
     }
 
     public onLoginClick(){
-
         FB.getLoginStatus((response) => {
             if (response.status === 'connected') {
                 this.getUserDetails();

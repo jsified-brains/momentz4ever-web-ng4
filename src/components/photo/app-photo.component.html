@@ -45,7 +45,7 @@
                     <p class="card-text">{{photo.description}}</p>-->
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Created On: {{photo.createdDate}} </small> 
+                    <small class="text-muted">Created On: {{photo.createdOn}} </small> 
                     <label class="checkbox-inline" (click)="onCheckboxClick(photo)" style="float:right"><input type="checkbox"></label>
                     <div *ngIf="photo.checkBox">
                         <button (click)="onCommentClick(photo)" class="btn btn-primary" 
