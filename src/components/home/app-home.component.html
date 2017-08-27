@@ -70,6 +70,10 @@
     </div>
 </div>
 
+<!--<div id="spinner" class="spinner">
+    <img src="assets/spinner1.gif">
+</div>-->
+
 <div class="modal fade" id="newAlbumWindow" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -90,13 +94,12 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Cancle</button>-->
-                <button>
-                    <label>
-                        Open Files!
-                        <input type="file" style="display: none" file-handler>
-                    </label>
-                </button>
+                <form>
+                    <div class="form-group">
+                        <input type="file" id="selectFile" name="selectFile" class="btn btn-success"  multiple />
+                        <button type="button" (click)="uploadImage()" value="Upload Image">Upload</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

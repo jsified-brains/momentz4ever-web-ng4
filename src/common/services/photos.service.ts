@@ -16,7 +16,14 @@ export class PhotoService{
          .map((response: Response) => response.json());
          
      }
+
+     uploadImage(formdata:any){
+       return this.http
+        .post(AppConfig.route('photos/uploads'), formdata)
+        .map((res: Response) => res.json());
+     }
 }
+
 
 // import { Http, Response } from '@angular/http';
 // import { Injectable } from '@angular/core';

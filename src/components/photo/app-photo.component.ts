@@ -52,6 +52,7 @@ export class PhotoComponent{
         }
     }
     onLikeClick(photo){
+        console.log("Like Count:"+photo.likeCount);
         photo.likeCount++;
     }
 

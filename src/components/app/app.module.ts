@@ -13,6 +13,7 @@ import { AlbumService, PhotoService, UserService } from '../../common/services';
 
 
 
+
 const ROUTES: Route[] = [
   { path: '', component: LoginComponent},
   { path: 'home', component: HomeComponent},
@@ -25,7 +26,7 @@ const ROUTES: Route[] = [
     AppHeaderComponent,
     LoginComponent,
     HomeComponent,
-    PhotoComponent
+    PhotoComponent,
   ],
   imports: [
     BrowserModule,

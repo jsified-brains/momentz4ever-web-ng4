@@ -1,7 +1,9 @@
-import { Component , OnInit,  ChangeDetectorRef } from '@angular/core';
+import { Component , OnInit, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { Album } from '../../common/interfaces';
-import { AlbumService } from '../../common/services/albums.service';
+import { Album } from '../../common/Interfaces';
+import { AlbumService } from '../../common/services';
+import { Photo } from '../../common/Interfaces';
+import { PhotoService } from '../../common/services';
 
 @Component({
     selector: 'app-home',
@@ -10,7 +12,8 @@ import { AlbumService } from '../../common/services/albums.service';
 export class HomeComponent{
     albums: Album[] =[];
 
-    constructor(private router: Router,private albumService: AlbumService, private ref: ChangeDetectorRef){
+    constructor(private router: Router,private albumService: AlbumService, private ref: ChangeDetectorRef,
+    private photoService: PhotoService, private element:ElementRef){
     }
 
     getAlbums(){
@@ -23,6 +26,19 @@ export class HomeComponent{
         },
         error => console.log(error));
     }
+
+    public uploadImage(){
+        // this.element.nativeElement.querySelector('#spinner').style.visibility='visible';
+        let files=this.element.nativeElement.querySelector('#selectFile').files;
+        let formData=new FormData();
+        let file=files[0];
+        formData.append('selectFile',file,file.name);
+        this.photoService.uploadImage(formData).subscribe();
+    }
+
+    // private dataLoaded(data:any){
+    //     this.element.nativeElement.querySelector('#spinner').style.visibility='hidden';
+    // }
 
     public currentView='gridView';
 
