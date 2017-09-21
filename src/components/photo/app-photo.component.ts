@@ -47,7 +47,6 @@ export class PhotoComponent{
     {
         if (event.keyCode == 13)
         {
-            photo.comment++;
             photo.commentArea=false;
         }
     }

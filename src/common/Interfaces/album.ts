@@ -3,7 +3,8 @@ export interface Album {
     ownerId: string,
     title:string,
     description:string,
-    coverImageUrl:string,
+    coverImage:string,
     createdOn:string,
-    lastViewedOn:string
+    lastViewedOn:string,
+    imageName:string
 }

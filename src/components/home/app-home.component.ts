@@ -1,19 +1,24 @@
-import { Component , OnInit, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { ViewChild, Component , OnInit, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Album } from '../../common/Interfaces';
 import { AlbumService } from '../../common/services';
 import { Photo } from '../../common/Interfaces';
-import { PhotoService } from '../../common/services';
+import { PhotoService, UserService } from '../../common/services';
+// import { LoginComponent } from '../login/app-login.component';
 
 @Component({
     selector: 'app-home',
     templateUrl: './app-home.component.html'
 })
-export class HomeComponent{
-    albums: Album[] =[];
 
-    constructor(private router: Router,private albumService: AlbumService, private ref: ChangeDetectorRef,
-    private photoService: PhotoService, private element:ElementRef){
+export class HomeComponent{
+    @ViewChild('fileInput') fileInput:ElementRef;
+    public ownerId: string;
+    albums: Album[] =[];
+    imgSrc :any;
+    
+    constructor(private router: Router,private albumService: AlbumService, private ref: ChangeDetectorRef, 
+    private photoService: PhotoService, private userService: UserService,private element:ElementRef){
     }
 
     getAlbums(){
@@ -23,22 +28,41 @@ export class HomeComponent{
         .subscribe(responseData => {
             this.albums = responseData;
             this.ref.detectChanges();
+           
         },
         error => console.log(error));
     }
 
     public uploadImage(){
         // this.element.nativeElement.querySelector('#spinner').style.visibility='visible';
+        this.ownerId=this.userService.getOwnerId();
+        let title=this.element.nativeElement.querySelector('#title').value;
+        let description= this.element.nativeElement.querySelector('#description').value;
         let files=this.element.nativeElement.querySelector('#selectFile').files;
-        let formData=new FormData();
         let file=files[0];
-        formData.append('selectFile',file,file.name);
-        this.photoService.uploadImage(formData).subscribe();
+        let coverImage=file.name;
+        // Create an Album Object first
+        let albumId = '';
+        this.albumService.addAlbum({ownerId:this.ownerId,title, description, coverImage}).subscribe(res => {   
+            if(res)  
+            {    
+                albumId = res._id;
+                let formData=new FormData();
+                formData.append('ownerId',this.ownerId);
+                formData.append('albumId',albumId);
+                for(let i=0;i<files.length;i++){
+                    formData.append('selectFile',files[i], files[i].name);
+                }    
+                this.photoService.uploadImage(formData).subscribe(res1 => { 
+                    if(res1)  
+                    {    
+                       this.fileInput.nativeElement.click();
+                        window.alert("Photos Uploaded Succesfully!");           
+                    }
+                });   
+            }
+        });   
     }
-
-    // private dataLoaded(data:any){
-    //     this.element.nativeElement.querySelector('#spinner').style.visibility='hidden';
-    // }
 
     public currentView='gridView';
 
