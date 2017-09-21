@@ -13,10 +13,11 @@ import { AlbumService, PhotoService, UserService } from '../../common/services';
 
 
 
+
 const ROUTES: Route[] = [
   { path: '', component: LoginComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'photo/:albumId', component: PhotoComponent}
+  { path: 'album/:albumId', component: PhotoComponent}
 ]
 
 @NgModule({
@@ -25,7 +26,7 @@ const ROUTES: Route[] = [
     AppHeaderComponent,
     LoginComponent,
     HomeComponent,
-    PhotoComponent
+    PhotoComponent,
   ],
   imports: [
     BrowserModule,

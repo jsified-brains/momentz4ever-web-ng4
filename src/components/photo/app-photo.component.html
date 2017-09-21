@@ -25,8 +25,7 @@
         <div class="col-md-3 col-sm-6" *ngFor="let photo of photos">
             <div class="card card-outline-success">
                 <img class="card-img-top" style="border-bottom:1px solid;padding: 10px;margin:0 auto;width:100%;height:200px;"
-                 src={{photo.imageUrl}}
-                alt="Album">
+                src="http://localhost:1337/api/v1/photos/{{photo.albumId}}/{{photo.originalname}}"  alt="Photo">
                 <div class="card-block text-right">
                     <button (click)="onLikeClick(photo)" class="btn btn-primary" 
                         style="margin: 5px; padding: 15px;">
@@ -41,12 +40,17 @@
                     <div *ngIf="photo.commentArea" (keydown)="handleKeyDown($event,photo)">
                         <input type="text" class="form-control" id="comment">
                     </div>
-                    <!--<h4 class="card-title">{{photo.title}}</h4>
-                    <p class="card-text">{{photo.description}}</p>-->
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Created On: {{photo.createdDate}} </small> 
-                    <label class="checkbox-inline" style="float:right"><input type="checkbox"></label>
+                    <small class="text-muted">Created On: {{photo.createdOn}} </small> 
+                    <label class="checkbox-inline" (click)="onCheckboxClick(photo)" style="float:right"><input type="checkbox"></label>
+                    <div *ngIf="photo.checkBox">
+                        <button (click)="onCommentClick(photo)" class="btn btn-primary" 
+                        style="margin: 5px; padding: 15px;">
+                            <span class="glyphicon glyphicon-delete" data-toggle="tooltip" title="Add Comment" aria-hidden="true"></span>
+                            <span class="badge">{{photo.comment}}</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,8 +62,7 @@
         <div class="col-md-3 col-sm-6" *ngFor="let photo of photos">
             <div class="card card-outline-success">
                 <img class="card-img-top" style="border-bottom:1px solid;padding: 10px;margin:0 auto;width:100%;height:200px;"
-                 src={{photo.imageUrl}}
-                alt="Album">
+                src="http://localhost:1337/api/v1/photos/{{photo.albumId}}/{{photo.originalname}}" alt="Photo">
             </div>
         </div>
     </div>

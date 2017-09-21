@@ -7,6 +7,7 @@ import { UserService } from '../../common/services'
     templateUrl: './app-login.component.html'
 })
 export class LoginComponent {
+    public ownerId:string;
     public userDetails: string;
     public userDetailsFromDB: any;
     public userFields: string[] = [
@@ -27,7 +28,6 @@ export class LoginComponent {
     }
 
     public onLoginClick(){
-
         FB.getLoginStatus((response) => {
             if (response.status === 'connected') {
                 this.getUserDetails();
@@ -45,9 +45,12 @@ export class LoginComponent {
             this.userService
             .add(details)
             .subscribe(responseData => {
+                this.ownerId=responseData._id;
+                this.userService.setOwnerId(this.ownerId);
                 this.router.navigate(['./home']);
             }, 
             error => console.log(error));           
         });
+        
     }
 }

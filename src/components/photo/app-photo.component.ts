@@ -29,6 +29,8 @@ export class PhotoComponent{
     public currentView='thumbnailView';
 
     public setView(view:string){  
+        this.id= this.route.snapshot.paramMap.get('albumId');
+        this.getPhotos();
         if (view === 'thumbnailView') 
             this.currentView = 'thumbnailView';
         else{
@@ -45,17 +47,21 @@ export class PhotoComponent{
     {
         if (event.keyCode == 13)
         {
-            photo.comment++;
             photo.commentArea=false;
         }
     }
     onLikeClick(photo){
+        console.log("Like Count:"+photo.likeCount);
         photo.likeCount++;
     }
 
-    ngOnInit(){
-        
-        this.id= this.route.snapshot.paramMap.get('albumId');
-        this.getPhotos();
+    onCheckboxClick(photo){
+        photo.checkBox=true;
     }
+
+    // ngOnInit(){
+        
+    //     // this.id= this.route.snapshot.paramMap.get('albumId');
+    //     // this.getPhotos();
+    // }
 }

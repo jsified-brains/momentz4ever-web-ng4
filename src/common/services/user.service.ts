@@ -6,6 +6,7 @@ import { AppConfig } from '../../appConfig';
 
 @Injectable()
 export class UserService{
+    public oId: string;
     
     constructor(private http: Http){
     }
@@ -14,5 +15,14 @@ export class UserService{
         return this.http
         .post(AppConfig.route('users'), user)
         .map((res: Response) => res.json());
+    }
+
+    public setOwnerId(id: string){
+        this.oId=id;
+        console.log("owner Id:"+this.oId);
+    }
+
+    public getOwnerId(){
+        return this.oId;
     }
 }

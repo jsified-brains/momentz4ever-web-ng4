@@ -1,0 +1,111 @@
+/* 1 */
+{
+    "_id" : ObjectId("5999a42a9dc64523ec49f12f"),
+    "ownerId" : "5990da68a633241198b377ee",
+    "albumId" : "5996356d1b46c304ecd23307",
+    "title" : "photo1",
+    "description" : "First picture",
+    "imageUrl" : "http://drawabox.com/images/lesson3/ref_hibiscusflower.jpg",
+    "likeCount" : 0,
+    "comment" : "good",
+    "createdOn" : ISODate("2016-05-05T04:00:00.000Z"),
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5999a4839dc64523ec49f130"),
+    "ownerId" : "5990da68a633241198b377ee",
+    "albumId" : "5996356d1b46c304ecd23307",
+    "title" : "photo2",
+    "description" : "Second picture",
+    "imageUrl" : "http://www.flowerspictures.org/image/flowers/gerbera/gerbera-flower_11.jpg",
+    "likeCount" : 0,
+    "comment" : "good",
+    "createdOn" : ISODate("2016-05-05T04:00:00.000Z"),
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5999a4e99dc64523ec49f131"),
+    "ownerId" : "5990da68a633241198b377ee",
+    "albumId" : "5996359e1b46c304ecd23308",
+    "title" : "photo1",
+    "description" : "First picture",
+    "imageUrl" : "http://www.flowerspictures.org/image/flowers/sneezeweed/sneezeweed-plant_21.jpg",
+    "likeCount" : 0,
+    "comment" : "good",
+    "createdOn" : ISODate("2016-05-05T04:00:00.000Z"),
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5999a5159dc64523ec49f132"),
+    "ownerId" : "5990da68a633241198b377ee",
+    "albumId" : "5996359e1b46c304ecd23308",
+    "title" : "photo2",
+    "description" : "Second picture",
+    "imageUrl" : "http://www.flowerpictures.net/Flowerpictures/Flowers-home-2014/images/DSC04703.jpg",
+    "likeCount" : 0,
+    "comment" : "good",
+    "createdOn" : ISODate("2016-05-05T04:00:00.000Z"),
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5999a58a9dc64523ec49f133"),
+    "ownerId" : "5990da68a633241198b377ee",
+    "albumId" : "599635c31b46c304ecd23309",
+    "title" : "photo1",
+    "description" : "First picture",
+    "imageUrl" : "http://freeflowerpictures.net/image/flowers/calendula/calendula_39.jpg",
+    "likeCount" : 0,
+    "comment" : "good",
+    "createdOn" : ISODate("2016-05-05T04:00:00.000Z"),
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5999a5be9dc64523ec49f134"),
+    "ownerId" : "5990da68a633241198b377ee",
+    "albumId" : "599635c31b46c304ecd23309",
+    "title" : "photo2",
+    "description" : "Second picture",
+    "imageUrl" : "http://www.flowerpictures.net/Flowerpictures/Flowers-home-2014/images/DSC04002.jpg",
+    "likeCount" : 0,
+    "comment" : "good",
+    "createdOn" : ISODate("2016-05-05T04:00:00.000Z"),
+    "__v" : 0
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5999a6099dc64523ec49f135"),
+    "ownerId" : "5990da68a633241198b377ee",
+    "albumId" : "599635ec1b46c304ecd2330a",
+    "title" : "photo1",
+    "description" : "First picture",
+    "imageUrl" : "http://www.flowerpictures.net/Flowerpictures/individual_flowers/tulips/images/tulip-19.jpg",
+    "likeCount" : 0,
+    "comment" : "good",
+    "createdOn" : ISODate("2016-05-05T04:00:00.000Z"),
+    "__v" : 0
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("5999a6339dc64523ec49f136"),
+    "ownerId" : "5990da68a633241198b377ee",
+    "albumId" : "599635ec1b46c304ecd2330a",
+    "title" : "photo2",
+    "description" : "Second picture",
+    "imageUrl" : "http://www.flowerspictures.org/image/flowers/blanket-flowers/blanket-flower-fully-open.jpg",
+    "likeCount" : 0,
+    "comment" : "good",
+    "createdOn" : ISODate("2016-05-05T04:00:00.000Z"),
+    "__v" : 0
+}
